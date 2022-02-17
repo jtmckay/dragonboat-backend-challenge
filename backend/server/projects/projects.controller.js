@@ -12,4 +12,9 @@ export default class {
 
     return service.getAll();
   };
+
+  move = (options) => {
+    const service = new ProjectsService();
+    return service.move(options);
+  };
 }

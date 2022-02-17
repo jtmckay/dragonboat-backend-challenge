@@ -76,4 +76,9 @@ export default class {
   // You can add more methods to this mock to extend its functionality or
   // rewrite it to use any kind of database system (eg. mongo, postgres, etc.)
   // it is not part of the evaluation process
+
+  static setChildren = (project = {}) => {
+    const existingRecord = projectList.find(i => i.id === project.id)
+    existingRecord.children = project.children
+  }
 }

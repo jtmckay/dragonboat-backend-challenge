@@ -9,11 +9,5 @@ export const selectProjects = createSelector(
 export const selectRootProjects = createSelector(
   (state) => state.projects.byId,
   (state) => state.projects.rootIds,
-  (byId, rootIds) => rootIds.map((id) => ({...byId[id], childrenScore: scoreChild(byId, id) - byId[id].score}))
+  (byId, rootIds) => rootIds.map((id) => byId[id])
 );
-
-function scoreChild (projects, childId) {
-  const childrenScore = projects[childId].children.reduce((acc, current) => acc + scoreChild(projects, current), 0)
-  projects[childId].childrenScore = childrenScore
-  return projects[childId].score + childrenScore
-}
