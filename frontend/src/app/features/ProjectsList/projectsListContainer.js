@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { fetchProjects as fetchProjectsAction } from "../../store/projects/actions";
-import { selectProjects } from "../../store/projects/selectors";
+import { selectRootProjects } from "../../store/projects/selectors";
 
 const container = (Component) => {
   return (props) => {
@@ -11,7 +11,7 @@ const container = (Component) => {
 
     const fetchProjects = () => dispatch(fetchProjectsAction());
 
-    const projects = useSelector((state) => selectProjects(state));
+    const projects = useSelector((state) => selectRootProjects(state));
 
     useEffect(() => {
       fetchProjects();
