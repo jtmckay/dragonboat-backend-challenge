@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  backend:
+    restart: unless-stopped
+    build:
+      dockerfile: ./Dockerfile
+      context: ./backend
+    command: ["npm", "run", "start"]
+    ports:
+      - 3030:3030
+  frontend:
+    restart: unless-stopped
+    build:
+      dockerfile: ./Dockerfile
+      context: ./frontend
+    command: ["npm", "run", "start"]
+    ports:
+      - 3000:3000
